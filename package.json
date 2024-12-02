@@ -1,0 +1,19 @@
+{
+  "name": "wighos",
+  "version": "1.0.0",
+  "bin": {
+    "wighos": "./cli.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^12.1.0"
+  }
+}

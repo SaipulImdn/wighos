@@ -1,0 +1,14 @@
+{
+  "name": "horee",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/infrastructure/server/app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "9.0.0"
+  }
+}
