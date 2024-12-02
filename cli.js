@@ -30,8 +30,7 @@ const copyTemplate = (templatePath, destination) => {
       fs.mkdirSync(destFile, { recursive: true });
       copyTemplate(srcFile, destFile);
     } else {
-      const content = fs.readFileSync(srcFile, 'utf-8');
-      fs.writeFileSync(destFile, content);
+      fs.copyFileSync(srcFile, destFile);
     }
   });
 };
