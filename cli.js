@@ -35,6 +35,24 @@ const copyTemplate = (templatePath, destination) => {
   });
 };
 
+// Function to replace module name in all Go files
+const replaceModuleNameInFiles = (directory, oldModuleName, newModuleName) => {
+  const files = fs.readdirSync(directory);
+
+  files.forEach((file) => {
+    const filePath = path.join(directory, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      replaceModuleNameInFiles(filePath, oldModuleName, newModuleName); // Recursive for directories
+    } else if (file.endsWith('.go')) {
+      let content = fs.readFileSync(filePath, 'utf-8');
+      const updatedContent = content.replace(new RegExp(oldModuleName, 'g'), newModuleName);
+      fs.writeFileSync(filePath, updatedContent);
+    }
+  });
+};
+
 // Function to update package.json with app name, Node.js, and npm versions
 const updatePackageJson = (destination, appName, nodeVersion, npmVersion) => {
   const packageJsonPath = path.join(destination, 'package.json');
@@ -107,11 +125,19 @@ const generateGolangApp = async (destination) => {
     },
   ]);
 
+  // Update go.mod
   const goModPath = path.join(destination, 'go.mod');
-  let goModContent = fs.readFileSync(goModPath, 'utf-8');
-  goModContent = goModContent.replace('module golang-app', `module ${appName}`);
-  goModContent = goModContent.replace('go 1.19', `go ${golangVersion}`);
-  fs.writeFileSync(goModPath, goModContent);
+  if (fs.existsSync(goModPath)) {
+    let goModContent = fs.readFileSync(goModPath, 'utf-8');
+    goModContent = goModContent.replace('module golang-app', `module ${appName}`);
+    goModContent = goModContent.replace('go 1.19', `go ${golangVersion}`);
+    fs.writeFileSync(goModPath, goModContent);
+  }
+
+  // Replace "golang-app" with the new app name in all Go files
+  replaceModuleNameInFiles(destination, 'golang-app', appName);
+
+  console.log(`Golang app "${appName}" generated successfully at ${destination}`);
 };
 
 // Command to generate app based on user choice
