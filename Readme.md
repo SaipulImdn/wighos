@@ -1,52 +1,58 @@
 ````markdown
 # Wighos
 
-**Wighos** adalah CLI package manager yang dirancang untuk mempermudah pembuatan aplikasi dengan clean architecture. Dengan Wighos, Anda dapat dengan mudah membuat aplikasi berbasis **Express.js** atau **Golang** hanya dengan satu perintah!
+**Wighos** is a CLI package manager designed to simplify the creation of applications with clean architecture. With Wighos, you can easily create applications based on **Express.js**, **Golang**, or **Rust** with just one command!
 
-## Fitur
+## Features
 
-- **Dukungan Stack**:
+- **Supported Stacks**:
   - Express.js (Node.js)
   - Golang (Clean Architecture)
-- **Customisasi Mudah**:
-  - Pilih versi Node.js, npm, atau Golang yang ingin digunakan.
-- **Instalasi Otomatis**:
-  - Langsung menginstal dependensi setelah aplikasi dibuat.
+  - Rust
+- **Easy Customization**:
+  - Choose the Node.js, npm, or Golang version you want to use.
+- **Automatic Installation**:
+  - Installs dependencies automatically after the app is created.
 
-## Instalasi
+## Installation
 
-Wighos tidak memerlukan instalasi permanen di sistem Anda. Cukup gunakan `npx` untuk menjalankannya langsung.
+Wighos does not require permanent installation on your system. Simply use `npx` to run it directly.
 
-## Penggunaan
+## Usage
 
-### Membuat Aplikasi Baru
+### Create a New Application
 
-Gunakan perintah berikut untuk membuat aplikasi baru:
+Use the following command to create a new application:
 
 ```bash
-npx wighos generate <nama-aplikasi>
+npx wighos generate <app-name>
 ```
 ````
 
-- **`<nama-aplikasi>`**: Nama aplikasi atau folder tempat aplikasi akan dibuat.
+- **`<app-name>`**: The name of the application or the folder where the application will be created.
 
-Contoh:
+Example:
 
 ```bash
 npx wighos generate myapp
 ```
 
-### Pilihan Stack
+### Choose Your Stack
 
-Setelah menjalankan perintah di atas, Wighos akan meminta Anda memilih stack dan versi yang diinginkan:
+After running the command above, Wighos will prompt you to choose the desired stack and version:
 
-- Pilih **Express.js** atau **Golang**.
-- Tentukan versi **Node.js** atau **Golang** yang digunakan.
-- Nama aplikasi dan versi akan secara otomatis diperbarui di konfigurasi proyek (seperti `package.json` atau `go.mod`).
+- Choose **Express.js**, **Golang**, or **Rust**.
+- Select the **Node.js**, **npm**, or **Golang** version to use.
+- The application name and version will be automatically updated in the project configurations (like `package.json`, `go.mod`, or `Cargo.toml`).
 
-### Hasil Akhir
+### Final Result
 
-Setelah proses selesai:
+After the process is complete:
 
-- Struktur folder aplikasi siap digunakan.
-- Dependensi akan otomatis terinstal.
+- The application folder structure will be ready for use.
+- Dependencies will be automatically installed.
+
+```
+
+In this updated version, **Rust** has been added to the list of available stacks, and the documentation now reflects this new option. Users can choose between **Express.js**, **Golang**, and **Rust** when generating a new application.
+```
