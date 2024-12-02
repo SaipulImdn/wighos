@@ -2,11 +2,11 @@
   "name": "wighos",
   "version": "1.0.0",
   "bin": {
-    "wighos": "./cli.js"
+    "wighos": "./src/main.js"
   },
-  "main": "index.js",
+  "main": "src/main.js", 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/main.js"
   },
   "keywords": [],
   "author": "",
